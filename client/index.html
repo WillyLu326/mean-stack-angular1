@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mean Stack</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="js/angular-animate.min.js"></script>
+	<script type="text/javascript" src="myapp.js"></script>
+	<script type="text/javascript" src="men/men.controller.js"></script>
+	<script type="text/javascript" src="women/women.controller.js"></script>
+	<base href="/">
+</head>
+<body ng-app="myApp">
+<div class="container">
+	<h1>Admin Page</h1>
+	<hr>
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="list-group">
+			  <a ui-sref="men" class="list-group-item">Men</a>
+			  <a ui-sref="women" class="list-group-item">Women</a>
+			  <a ui-sref="kids" class="list-group-item">Kids</a>
+			  <a ui-sref="setting" class="list-group-item">Setting</a>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div ui-view></div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

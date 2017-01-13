@@ -1,0 +1,9 @@
+<div ng-if="menEmps">
+	<div ng-repeat="man in menEmps">
+		<h4>Name: {{ man.name }}</h4>
+		<h5>City: {{ man.address.city }}</h5>
+		<h5>State: {{ man.address.state }}</h5>
+		<h4>Age: {{ man.age }}</h4>
+		<hr>
+	</div>
+</div>
