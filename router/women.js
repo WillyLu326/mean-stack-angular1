@@ -1,29 +1,29 @@
 const express = require('express'),
-	Emp = require('../models/emp'),
+	Woman = require('../models/woman'),
 	router = express.Router();
 
 module.exports = router;
 
 // get all emps
-router.get('/emps', (req, res) => {
-	Emp.find({}, (err, emps) => {
+router.get('/women', (req, res) => {
+	Woman.find({}, (err, emps) => {
 		if (err) throw err;
-		res.send(emps);
+		res.json(emps);
 	});
 });
 
 // get an emp
-router.get('/emps/:name', (req, res) => {
-	Emp.find({name: req.params.name}, (err, emp) => {
+router.get('/women/:name', (req, res) => {
+	Woman.find({name: req.params.name}, (err, women) => {
 		if (err) throw err;
-		res.json(emp);
+		res.json(women);
 	});
 });
 
 // create an emp
-router.post('/emps', (req, res) => {
+router.post('/women', (req, res) => {
 	const body = req.body;
-	const newEmp = new Emp(body);
+	const newEmp = new Woman(body);
 
 	newEmp.save((err) => {
 		if (err) throw err;
@@ -32,10 +32,10 @@ router.post('/emps', (req, res) => {
 });
 
 // update an emp
-router.put('/emps/:name', (req, res) => {
+router.put('/women/:name', (req, res) => {
 	const body = req.body;
 
-	Emp.findOne({name: req.params.name}, (err, emp) => {
+	Woman.findOne({name: req.params.name}, (err, emp) => {
 		if (err) throw err;
 		emp.address.city = body.address.city;
 		emp.address.state = body.address.state;
@@ -49,8 +49,8 @@ router.put('/emps/:name', (req, res) => {
 });
 
 // delete an emp
-router.delete('/emps/:name', (req, res) => {
-	Emp.remove({name: req.params.name}, (err) => {
+router.delete('/women/:name', (req, res) => {
+	Woman.remove({name: req.params.name}, (err) => {
 		if (err) throw err;
 		res.send('delete successfully');
 	})

@@ -5,7 +5,8 @@ const express = require('express'),
 	path = require('path'),
 	cookieParser = require('cookie-parser');
 	app = express(),
-	router = require('./router/router');
+	router = require('./router/router'),
+	women = require('./router/women');
 
 mongoose.connect('mongodb://willylu:willylu@ds119718.mlab.com:19718/emp-db');
 
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/api', router);
+app.use('/api2', women);
 
 app.use((req, res) => {
 	res.sendFile(path.join(__dirname, 'client', 'index.html'));

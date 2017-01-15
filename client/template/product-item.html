@@ -1,0 +1,50 @@
+<div ng-if="ctrl.obj">
+	<div class="panel panel-primary" ng-repeat="man in ctrl.obj">
+		<div class="panel-heading" 
+			 ng-click="ctrl.show[$index] = !ctrl.show[$index]" 
+			 style="cursor: pointer">
+			<div class="panel-title">{{ man.name }} 
+				<span class="glyphicon glyphicon-chevron-down pull-right" ng-hide="ctrl.show[$index]"></span>
+				<span class="glyphicon glyphicon-chevron-up pull-right" ng-hide="!ctrl.show[$index]"></span>
+			</div>
+
+		</div>
+		<div class="panel-body" ng-show="ctrl.show[$index]">
+			<div style="margin: 20px">
+				<h4>City: {{ man.address.city }} 
+				<span class="pull-right">
+					<button class="btn btn-link" 
+							ng-if="ctrl.showEdit"
+							ng-click="ctrl.showEditField()">Edit</button>
+				</span> 
+				</h4>
+			</div>
+			
+			<h4 style="margin: 20px">State: {{ man.address.state }}</h4>
+			<h4 style="margin: 20px">Age: {{ man.age }}</h4>
+
+			<button class="btn btn-danger" 
+					ng-click="ctrl.delete({name: man.name})">Delete
+			</button>
+
+			<div ng-if="!ctrl.showEdit" style="margin: 20px">
+				<div style="border: 1px dotted; padding: 5px;">
+					<label>Edit City</label>
+					<input type="text" name="city" class="form-control" 
+						   ng-model="man.address.city">
+					<br>
+					<label>Edit State</label>
+					<input type="text" name="city" class="form-control" 
+						   ng-model="man.address.state">
+					<br>
+					<label>Edit Age</label>
+					<input type="text" name="city" class="form-control" 
+						   ng-model="man.age">
+					<br>
+					<button class="btn btn-info" ng-click="ctrl.edit({item: man})">		Submit
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

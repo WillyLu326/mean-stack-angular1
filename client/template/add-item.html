@@ -1,0 +1,50 @@
+<div class="pull-right">
+	<span><strong>Add Item</strong></span>
+	<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+		<span class="glyphicon glyphicon-plus"></span>
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+	    <!-- Modal content-->
+	    	<div class="modal-content">
+	        	<div class="modal-header">
+	          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          		<h4 class="modal-title">Modal Header</h4>
+	        	</div>
+	        <div class="modal-body">
+	          	<form class="form">
+	          		<div class="form-group">
+	          			<label>Name</label>
+	          			<input type="text" name="name" class="form-control" 
+	          					ng-model="item.name">
+	          		</div>
+	          		<div class="form-group">
+	          			<label>City</label>
+	          			<input type="text" name="city" class="form-control" 
+	          					ng-model="item.address.city">
+	          		</div>
+	          		<div class="form-group">
+	          			<label>State</label>
+	          			<input type="text" name="state" class="form-control"
+	          					ng-model="item.address.state">
+	          		</div>
+	          		<div class="form-group">
+	          			<label>Age</label>
+	          			<input type="number" name="age" class="form-control"
+	          					ng-model="item.age">
+	          		</div>
+	          	</form>
+	        </div>
+	        <div class="modal-footer">
+	        	<button class="btn btn-primary" ng-click="ctrl.submit({item: item})">	Add It
+	        	</button>
+	          	<button type="button" class="btn btn-default" data-dismiss="modal">		Close
+	          	</button>
+	        </div>
+	      </div>
+	      
+	    </div>
+	</div>
+</div>
